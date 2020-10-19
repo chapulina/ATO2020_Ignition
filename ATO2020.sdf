@@ -14,8 +14,8 @@
         <engine>ogre2</engine>
         <scene>scene</scene>
         <ambient_light>0.3 0.3 0.3</ambient_light>
-        <background_color>0.8 0.8 0.8</background_color>
-        <camera_pose>-4.85 -14.95 2.99 0 0.2 2.45</camera_pose>
+        <background_color>0.71 0.83 0.94</background_color>
+        <camera_pose>6.85 -4.95 2.99 0 0.2 2.45</camera_pose>
       </plugin>
 
       <plugin filename="WorldControl" name="World control">
@@ -149,22 +149,22 @@
         <near_clip>0.01</near_clip>
         <far_clip>500</far_clip>
 
-        <keyframe type='lookat' visual='slide-0'/>
-        <keyframe type='lookat' visual='slide-1'/>
-        <keyframe type='lookat' visual='slide-2' eye_offset="0 -3.0 1 0 0 1.57"/>
-        <keyframe type='lookat' visual='slide-3'/>
-        <keyframe type='stack' visual='slide-4'/>
-        <keyframe type='stack' visual='slide-5'/>
-        <keyframe type='lookat' visual='slide-6'/>
-        <keyframe type='lookat' visual='slide-7'/>
-        <keyframe type='lookat' visual='slide-8'/>
-        <keyframe type='lookat' visual='slide-9'/>
-        <keyframe type='lookat' visual='slide-10'/>
-        <keyframe type='lookat' visual='slide-11'/>
-        <keyframe type='lookat' visual='slide-12'/>
-        <keyframe type='lookat' visual='slide-13'/>
-        <keyframe type='lookat' visual='slide-14'/>
-        <keyframe type='lookat' visual='slide-15'/>
+        <keyframe type='lookat' visual='slide-0' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-1' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-2' eye_offset="0 -2.0 0.5 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-3' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='stack' visual='slide-4' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='stack' visual='slide-5' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-6' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-7' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-8' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-9' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-10' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-11' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-12' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-13' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-14' eye_offset="0 -2.0 0 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-15' eye_offset="0 -2.0 0 0 0 1.57"/>
       </plugin>
 
     </gui>
@@ -200,21 +200,21 @@
     </include>
 
     <include>
-      <pose>-13.9 -5.9 0 0 0 -0.73</pose>
+      <pose>-3.9 5.9 0 0 0 -0.73</pose>
       <uri>
         https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Double pendulum with base
       </uri>
     </include>
 
     <include>
-      <pose>-10.9 -2.9 0 0 0 -0.73</pose>
+      <pose>-0.9 9 0 0 0 -0.73</pose>
       <uri>
-        models/Extinguisher PBR
+        https://fuel.ignitionrobotics.org/1.0/chapulina/models/Extinguisher PBR
       </uri>
     </include>
 
     <include>
-      <pose>-11.9 -2.9 0 0 0 -0.73</pose>
+      <pose>-1.4 9 0 0 0 -0.73</pose>
       <uri>
         https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Fire Extinguisher
       </uri>
@@ -282,24 +282,6 @@
                     </pbr>
                 </material>
             </visual>
-            <light name="right_light_source" type="spot">
-                <pose frame="">0.358 -0.133 0.45 3.1415926535897931 1.5707963267948966 -1.5707963267948966</pose>
-                <attenuation>
-                    <range>50</range>
-                    <linear>0</linear>
-                    <constant>0.1</constant>
-                    <quadratic>0.0025</quadratic>
-                </attenuation>
-                <diffuse>1.0 1.0 0.63 1</diffuse>
-                <specular>1.0 1.0 0.63 1</specular>
-                <spot>
-                    <inner_angle>1</inner_angle>
-                    <outer_angle>1.1</outer_angle>
-                    <falloff>1</falloff>
-                </spot>
-                <direction>0 0 -1</direction>
-                <cast_shadows>1</cast_shadows>
-            </light>
             <light name="front_light" type="spot">
                 <pose frame="">0.49 0 0.45 1.5707963267948966 1.5707963267948966 -1.5707963267948966</pose>
                 <attenuation>
@@ -316,42 +298,6 @@
                     <falloff>1</falloff>
                 </spot>
                 <direction>0 -1 0</direction>
-                <cast_shadows>1</cast_shadows>
-            </light>
-            <light name="left_light_source" type="spot">
-                <pose frame="">0.358 0.133 0.45 0 1.5707963267948966 -1.5707963267948966</pose>
-                <attenuation>
-                    <range>50</range>
-                    <linear>0</linear>
-                    <constant>0.1</constant>
-                    <quadratic>0.0025</quadratic>
-                </attenuation>
-                <diffuse>1.0 1.0 0.63 1</diffuse>
-                <specular>1.0 1.0 0.63 1</specular>
-                <spot>
-                    <inner_angle>1</inner_angle>
-                    <outer_angle>1.1</outer_angle>
-                    <falloff>1</falloff>
-                </spot>
-                <direction>0 0 -1</direction>
-                <cast_shadows>1</cast_shadows>
-            </light>
-            <light name="back_light_source" type="spot">
-                <pose frame="">0.26 0 0.46 -1.5707963267948966 1.5707963267948966 -1.5707963267948966</pose>
-                <attenuation>
-                    <range>50</range>
-                    <linear>0</linear>
-                    <constant>0.1</constant>
-                    <quadratic>0.0025</quadratic>
-                </attenuation>
-                <diffuse>1.0 1.0 0.63 1</diffuse>
-                <specular>1.0 1.0 0.63 1</specular>
-                <spot>
-                    <inner_angle>1</inner_angle>
-                    <outer_angle>1.1</outer_angle>
-                    <falloff>1</falloff>
-                </spot>
-                <direction>0 0 -1</direction>
                 <cast_shadows>1</cast_shadows>
             </light>
         <sensor name='gpu_lidar' type='gpu_lidar'>
@@ -814,7 +760,7 @@
             </axis>
         </joint>
 
-      <pose>-10 -10 0.38 0 0 0.0</pose>
+      <pose>0 0 0.38 0 0 0.0</pose>
       <plugin
         filename="ignition-gazebo-velocity-control-system"
         name="ignition::gazebo::systems::VelocityControl">
@@ -879,7 +825,7 @@
     </model>
 
     <model name='slide-0'>
-      <pose>-24 -21.5 13.5 -0.45 0 -0.74</pose>
+      <pose>-12.86 -10.25 17 -0.45 0 -0.74</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -905,7 +851,7 @@
     </model>
 
     <model name='slide-1'>
-      <pose>-24 -10 5 0 0 -1.52</pose>
+      <pose>-14 0 5 0 0 -1.52</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -931,7 +877,7 @@
     </model>
 
     <model name='slide-2'>
-      <pose>0 6 0 0 0 2.63</pose>
+      <pose>10 16 0 0 0 2.63</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -957,7 +903,7 @@
     </model>
 
     <model name='slide-3'>
-      <pose>0 9 0 0 0 0</pose>
+      <pose>20.4 7.8 1.8 0 0 1.4</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -983,7 +929,7 @@
     </model>
 
     <model name='slide-4'>
-      <pose>3 0 0 0 0 0</pose>
+      <pose>18.9 -39.6 9.5 0 0 0.4</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1009,7 +955,7 @@
     </model>
 
     <model name='slide-5'>
-      <pose>3 0 0 0 0 0</pose>
+      <pose>18.9 -39.6 9.5 0 0 0.4</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1035,7 +981,7 @@
     </model>
 
     <model name='slide-6'>
-      <pose>3 6 0 0 0 0</pose>
+      <pose>-7 -24 8.6 0 0 -0.55</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1062,7 +1008,7 @@
     </model>
 
     <model name='slide-7'>
-      <pose>3 9 0 0 0 0</pose>
+      <pose>-20.3 -6 10 0.6 0 -1.37</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1088,7 +1034,7 @@
     </model>
 
     <model name='slide-8'>
-      <pose>6 0 0 0 0 0</pose>
+      <pose>3.2 12.5 11.3 -0.46 0 -3.11</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1115,7 +1061,7 @@
     </model>
 
     <model name='slide-9'>
-      <pose>6 3 0 0 0 0</pose>
+      <pose>-8.15 5.4 0 0 0 -1.57</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1142,7 +1088,7 @@
     </model>
 
     <model name='slide-10'>
-      <pose>6 6 0 0 0 0</pose>
+      <pose>-14 21 0 0 0 -2.64</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1168,7 +1114,7 @@
     </model>
 
     <model name='slide-11'>
-      <pose>6 9 0 0 0 0</pose>
+      <pose>0.55 2.73 9.71 -1.54 0 0</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1195,7 +1141,7 @@
     </model>
 
     <model name='slide-12'>
-      <pose>9 0 0 0 0 0</pose>
+      <pose>19 0 0 0 0 1.57</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1221,7 +1167,7 @@
     </model>
 
     <model name='slide-13'>
-      <pose>9 3 0 0 0 0</pose>
+      <pose>28 25 0 0 0 -0.8</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1248,7 +1194,7 @@
     </model>
 
     <model name='slide-14'>
-      <pose>9 6 0 0 0 0</pose>
+      <pose>28 25 5 0 0 -0.8</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
@@ -1274,7 +1220,7 @@
     </model>
 
     <model name='slide-15'>
-      <pose>9 9 0 0 0 0</pose>
+      <pose>19 9 4.408 -0.5499 0 2.04</pose>
       <static>1</static>
       <link name='link'>
         <pose>0 0 0.45 0 0 0</pose>
