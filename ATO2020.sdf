@@ -184,6 +184,7 @@
     <plugin
       filename="ignition-gazebo-sensors-system"
       name="ignition::gazebo::systems::Sensors">
+     <engine>ogre</engine>
     </plugin>
 
     <include>
@@ -207,6 +208,13 @@
 
     <include>
       <pose>-10.9 -2.9 0 0 0 -0.73</pose>
+      <uri>
+        models/Extinguisher PBR
+      </uri>
+    </include>
+
+    <include>
+      <pose>-11.9 -2.9 0 0 0 -0.73</pose>
       <uri>
         https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Fire Extinguisher
       </uri>
@@ -272,12 +280,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <!-- fallback to script if no PBR support-->
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
             <light name="right_light_source" type="spot">
@@ -458,11 +460,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
         </link>
@@ -546,12 +543,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <!-- fallback to script if no PBR support-->
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
         </link>
@@ -635,12 +626,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <!-- fallback to script if no PBR support-->
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
         </link>
@@ -724,12 +709,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <!-- fallback to script if no PBR support-->
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
         </link>
@@ -813,12 +792,6 @@
                             <roughness_map>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/R2_Roughness.png</roughness_map>
                         </metal>
                     </pbr>
-                    <!-- fallback to script if no PBR support-->
-                    <script>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/scripts/</uri>
-                        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/EXPLORER_R2_SENSOR_CONFIG_2/3/files/materials/textures/</uri>
-                        <name>UrbanTile/R2_Diffuse</name>
-                    </script>
                 </material>
             </visual>
         </link>

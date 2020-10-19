@@ -14,7 +14,7 @@ Install dependencies as instructed on their pages
 ```
 git clone https://github.com/chapulina/ATO2020_Ignition
 cd ATO2020_Ignition
-simslides_ignition -r ATO2020.sdf
+IGN_GAZEBO_RESOURCE_PATH=`pwd`/models simslides_ignition -r ATO2020.sdf
 ```
 
 To run with TPE:
