@@ -1,0 +1,922 @@
+<?xml version='1.0' ?>
+<sdf version='1.6'>
+  <world name='simslides'>
+
+    <gui>
+
+      <plugin filename="GzScene3D" name="3D View">
+        <ignition-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </ignition-gui>
+
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.3 0.3 0.3</ambient_light>
+        <background_color>0.8 0.8 0.8</background_color>
+        <camera_pose>-4.85 -14.95 2.99 0 0.2 2.45</camera_pose>
+      </plugin>
+
+      <plugin filename="WorldControl" name="World control">
+        <ignition-gui>
+          <title>World control</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="width">121</property>
+          <property type="double" key="z">1</property>
+
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </ignition-gui>
+
+        <play_pause>true</play_pause>
+        <step>true</step>
+        <start_paused>true</start_paused>
+
+      </plugin>
+
+      <plugin filename="WorldStats" name="World stats">
+        <ignition-gui>
+          <title>World stats</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">290</property>
+          <property type="double" key="z">1</property>
+
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right"/>
+            <line own="bottom" target="bottom"/>
+          </anchors>
+        </ignition-gui>
+
+        <sim_time>true</sim_time>
+        <real_time>true</real_time>
+        <real_time_factor>true</real_time_factor>
+        <iterations>true</iterations>
+
+      </plugin>
+
+      <plugin filename="KeyPublisher" name="Key publisher">
+        <ignition-gui>
+          <anchors target="3D View">
+            <line own="right" target="right"/>
+            <line own="top" target="top"/>
+          </anchors>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </ignition-gui>
+      </plugin>
+
+      <plugin filename="TransformControl" name="Transform control">
+        <ignition-gui>
+          <title>Transform control</title>
+          <property key="x" type="double">200</property>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">250</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#666666</property>
+        </ignition-gui>
+      </plugin>
+
+      <!-- Insert simple shapes -->
+      <plugin filename="Shapes" name="Shapes">
+        <ignition-gui>
+          <property key="x" type="double">450</property>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">150</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#666666</property>
+        </ignition-gui>
+      </plugin>
+
+      <plugin filename="VisualizeLidar" name="Lidar">
+        <ignition-gui>
+          <title>Lidar</title>
+          <property key="x" type="double">600</property>
+          <property key="resizable" type="bool">true</property>
+          <property key="showDockButton" type="bool">false</property>
+          <property key="showCloseButton" type="bool">false</property>
+          <property key="cardBackground" type="string">#44000022</property>
+          <property key="width" type="double">100</property>
+          <property key="height" type="double">100</property>
+          <property key="state" type="string">floating_collapsed</property>
+        </ignition-gui>
+      </plugin>
+
+      <plugin filename="ImageDisplay" name="Camera">
+        <ignition-gui>
+          <title>Camera</title>
+          <property key="x" type="double">700</property>
+          <property key="resizable" type="bool">true</property>
+          <property key="showDockButton" type="bool">false</property>
+          <property key="showCloseButton" type="bool">false</property>
+          <property key="cardBackground" type="string">#44000022</property>
+          <property key="width" type="double">130</property>
+          <property key="height" type="double">100</property>
+          <property key="state" type="string">floating_collapsed</property>
+        </ignition-gui>
+      </plugin>
+
+      <plugin name="SimSlides" filename="SimSlidesIgn">
+        <ignition-gui>
+          <title>SimSlides</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">50</property>
+          <property type="double" key="width">200</property>
+          <property type="string" key="cardBackground">#44000022</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/>
+            <line own="top" target="top"/>
+          </anchors>
+        </ignition-gui>
+
+        <near_clip>0.01</near_clip>
+        <far_clip>100</far_clip>
+
+        <keyframe type='lookat' visual='slide-0'/>
+        <keyframe type='lookat' visual='slide-1'/>
+        <keyframe type='lookat' visual='slide-2' eye_offset="0 -3.0 1 0 0 1.57"/>
+        <keyframe type='lookat' visual='slide-3'/>
+        <keyframe type='stack' visual='slide-4'/>
+        <keyframe type='stack' visual='slide-5'/>
+        <keyframe type='lookat' visual='slide-6'/>
+        <keyframe type='lookat' visual='slide-7'/>
+        <keyframe type='lookat' visual='slide-8'/>
+        <keyframe type='lookat' visual='slide-9'/>
+        <keyframe type='lookat' visual='slide-10'/>
+        <keyframe type='lookat' visual='slide-11'/>
+        <keyframe type='lookat' visual='slide-12'/>
+        <keyframe type='lookat' visual='slide-13'/>
+        <keyframe type='lookat' visual='slide-14'/>
+        <keyframe type='lookat' visual='slide-15'/>
+      </plugin>
+
+    </gui>
+
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-user-commands-system"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-sensors-system"
+      name="ignition::gazebo::systems::Sensors">
+    </plugin>
+
+    <include>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Sun
+      </uri>
+    </include>
+
+    <include>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Ground Plane
+      </uri>
+    </include>
+
+    <include>
+      <pose>-13.9 -5.9 0 0 0 -0.73</pose>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Double pendulum with base
+      </uri>
+    </include>
+
+    <include>
+      <pose>-10.9 -2.9 0 0 0 -0.73</pose>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Fire Extinguisher
+      </uri>
+    </include>
+
+    <model name='vehicle'>
+      <pose>-10 -10 0.3 0 0 0.0</pose>
+      <link name='chassis'>
+        <pose>-0.151427 -0 0.175 0 -0 0</pose>
+        <inertial>
+          <mass>1.14395</mass>
+          <inertia>
+            <ixx>0.126164</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.416519</iyy>
+            <iyz>0</iyz>
+            <izz>0.481014</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>2.01142 1 0.568726</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 1.0 1</ambient>
+            <diffuse>0.5 0.5 1.0 1</diffuse>
+            <specular>0.0 0.0 1.0 1</specular>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0.95 0 0.33 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.01142 1 0.568726</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="sensors_visual">
+          <pose>0.95 0 0.33 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+        <sensor name='gpu_lidar' type='gpu_lidar'>
+          <pose>0.95 0 0.33 0 0 0</pose>
+          <topic>lidar</topic>
+          <update_rate>10</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>16</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.5</min_angle>
+                <max_angle>0.5</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>1</resolution>
+                <min_angle>0.0</min_angle>
+                <max_angle>0.0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.08</min>
+              <max>3.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </lidar>
+          <alwaysOn>1</alwaysOn>
+          <visualize>true</visualize>
+        </sensor>
+        <sensor name="camera" type="camera">
+          <pose>0.95 0 0.33 0 0 0</pose>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <visualize>true</visualize>
+          <topic>camera</topic>
+        </sensor>
+      </link>
+
+      <link name='left_wheel'>
+        <pose>0.554283 0.625029 -0.025 -1.5707 0 0</pose>
+        <inertial>
+          <mass>2</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.3</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 0.2 1</ambient>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.3</radius>
+            </sphere>
+          </geometry>
+        </collision>
+      </link>
+
+      <link name='right_wheel'>
+        <pose>0.554282 -0.625029 -0.025 -1.5707 0 0</pose>
+        <inertial>
+          <mass>2</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.3</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 0.2 1</ambient>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.3</radius>
+            </sphere>
+          </geometry>
+        </collision>
+      </link>
+
+      <link name='caster'>
+        <pose>-0.957138 -0 -0.125 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.1</iyy>
+            <iyz>0</iyz>
+            <izz>0.1</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 0.2 1</ambient>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name='left_wheel_joint' type='revolute'>
+        <parent>chassis</parent>
+        <child>left_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+      <joint name='right_wheel_joint' type='revolute'>
+        <parent>chassis</parent>
+        <child>right_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+      <joint name='caster_wheel' type='ball'>
+        <parent>chassis</parent>
+        <child>caster</child>
+      </joint>
+
+      <plugin
+        filename="ignition-gazebo-velocity-control-system"
+        name="ignition::gazebo::systems::VelocityControl">
+        <topic>cmd_vel</topic>
+      </plugin>
+
+      <!-- Moving Forward: W -->
+      <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+              name="ignition::gazebo::systems::TriggeredPublisher">
+          <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+              <match field="data">87</match>
+          </input>
+          <output type="ignition.msgs.Twist" topic="/cmd_vel">
+              linear: {x: 0.5}, angular: {z: 0.0}
+          </output>
+      </plugin>
+
+      <!-- Moving Backward: X -->
+      <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+              name="ignition::gazebo::systems::TriggeredPublisher">
+          <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+              <match field="data">88</match>
+          </input>
+          <output type="ignition.msgs.Twist" topic="/cmd_vel">
+              linear: {x: -0.5}, angular: {z: 0.0}
+          </output>
+      </plugin>
+
+      <!-- Rotating right: D -->
+      <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+              name="ignition::gazebo::systems::TriggeredPublisher">
+          <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+              <match field="data">68</match>
+          </input>
+          <output type="ignition.msgs.Twist" topic="/cmd_vel">
+              linear: {x: 0.0}, angular: {z: -0.5}
+          </output>
+      </plugin>
+
+      <!--Rotating left: A -->
+      <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+              name="ignition::gazebo::systems::TriggeredPublisher">
+          <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+              <match field="data">65</match>
+          </input>
+          <output type="ignition.msgs.Twist" topic="/cmd_vel">
+              linear: {x: 0.0}, angular: {z: 0.5}
+          </output>
+      </plugin>
+
+      <!--Stop: S -->
+      <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+              name="ignition::gazebo::systems::TriggeredPublisher">
+          <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+              <match field="data">83</match>
+          </input>
+          <output type="ignition.msgs.Twist" topic="/cmd_vel">
+              linear: {x: 0.0}, angular: {z: 0.0}
+          </output>
+      </plugin>
+
+    </model>
+
+    <model name='slide-0'>
+      <pose>-24 -21.5 13.5 -0.45 0 -0.74</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-0.png</albedo_map>
+                <emissive_map>slides/slide-0.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-1'>
+      <pose>-24 -10 5 0 0 -1.52</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-1.png</albedo_map>
+                <emissive_map>slides/slide-1.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-2'>
+      <pose>0 6 0 0 0 2.63</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-2.png</albedo_map>
+                <emissive_map>slides/slide-2.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-3'>
+      <pose>0 9 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-3.png</albedo_map>
+                <emissive_map>slides/slide-3.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-4'>
+      <pose>3 0 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-4.png</albedo_map>
+                <emissive_map>slides/slide-4.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-5'>
+      <pose>3 0 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-5.png</albedo_map>
+                <emissive_map>slides/slide-5.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-6'>
+      <pose>3 6 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <transparency>0.01</transparency>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-6.png</albedo_map>
+                <emissive_map>slides/slide-6.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-7'>
+      <pose>3 9 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-7.png</albedo_map>
+                <emissive_map>slides/slide-7.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-8'>
+      <pose>6 0 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <transparency>0.01</transparency>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-8.png</albedo_map>
+                <emissive_map>slides/slide-8.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-9'>
+      <pose>6 3 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <transparency>0.01</transparency>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-9.png</albedo_map>
+                <emissive_map>slides/slide-9.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-10'>
+      <pose>6 6 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-10.png</albedo_map>
+                <emissive_map>slides/slide-10.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-11'>
+      <pose>6 9 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <transparency>0.01</transparency>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-11.png</albedo_map>
+                <emissive_map>slides/slide-11.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-12'>
+      <pose>9 0 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-12.png</albedo_map>
+                <emissive_map>slides/slide-12.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-13'>
+      <pose>9 3 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <transparency>0.01</transparency>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-13.png</albedo_map>
+                <emissive_map>slides/slide-13.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-14'>
+      <pose>9 6 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-14.png</albedo_map>
+                <emissive_map>slides/slide-14.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='slide-15'>
+      <pose>9 9 0 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0.45 0 0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <transparency>0.01</transparency>
+          <geometry>
+            <box>
+              <size>1.7 0.001 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <emissive>0.5 0.5 0.5 1</emissive>
+            <pbr>
+              <metal>
+                <albedo_map>slides/slide-15.png</albedo_map>
+                <emissive_map>slides/slide-15.png</emissive_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
