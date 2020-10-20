@@ -14,7 +14,7 @@
         <engine>ogre2</engine>
         <scene>scene</scene>
         <ambient_light>0.8 0.8 0.8</ambient_light>
-        <background_color>0.71 0.83 0.94</background_color>
+        <background_color>0.60 0.71 0.83</background_color>
         <camera_pose>6.85 -4.95 2.99 0 0.2 2.45</camera_pose>
       </plugin>
 
