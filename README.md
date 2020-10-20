@@ -6,8 +6,10 @@ Presentation about a simulator, from inside the simulator.
 
 Install dependencies as instructed on their pages
 
-* [Ignition Dome](https://ignitionrobotics.org/docs/citadel)
-* [SimSlides](https://github.com/chapulina/simslides/) (use `dome` branch)
+* [Ignition Dome](https://ignitionrobotics.org/docs/dome)
+    * Built from source including [this PR](https://github.com/ignitionrobotics/ign-gazebo/pull/410), to be released soon
+* [SimSlides](https://github.com/chapulina/simslides/)
+    * use `dome` branch
 
 ## Run presentation
 
